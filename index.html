@@ -36,17 +36,65 @@ button {
   font: inherit;
   cursor: pointer;
 }
-
 header {
-  background: var(--dark);
+  background: linear-gradient(110deg, #130c0b, #351014, #170c0b);
   color: white;
-  padding: 17px 7%;
+  padding: 20px 7%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 2px solid var(--gold);
+  border-bottom: 2px solid #d6aa58;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  min-height: 85px;
 }
 
+header .logo,
+header .header-tag {
+  position: relative;
+  z-index: 2;
+}
+
+.snow-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.snowflake {
+  position: absolute;
+  top: -15px;
+  color: #fff;
+  opacity: 0.8;
+  font-size: var(--size);
+  left: var(--left);
+  animation: snowFall var(--duration) linear infinite;
+  animation-delay: var(--delay);
+  text-shadow: 0 0 8px rgba(255,255,255,.8);
+}
+
+@keyframes snowFall {
+  0% {
+    transform: translate3d(0,-15px,0) rotate(0deg);
+    opacity: 0;
+  }
+  10% { opacity: .85; }
+  90% { opacity: .7; }
+  100% {
+    transform: translate3d(var(--drift),110px,0) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .snowflake {
+    animation: none;
+    display: none;
+  }
+}
 .logo {
   font-family: 'Playfair Display', serif;
   font-size: 27px;
