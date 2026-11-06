@@ -768,7 +768,21 @@ function buyProduct(id) {
 }
 
 document.getElementById("year").textContent = new Date().getFullYear();
+const snowContainer = document.getElementById("snow");
 
+if (snowContainer) {
+  for (let i = 0; i < 35; i++) {
+    const flake = document.createElement("span");
+    flake.className = "snowflake";
+    flake.textContent = "❄";
+    flake.style.setProperty("--left", Math.random() * 100 + "%");
+    flake.style.setProperty("--size", (7 + Math.random() * 12) + "px");
+    flake.style.setProperty("--duration", (3 + Math.random() * 6) + "s");
+    flake.style.setProperty("--delay", (-Math.random() * 8) + "s");
+    flake.style.setProperty("--drift", (-25 + Math.random() * 50) + "px");
+    snowContainer.appendChild(flake);
+  }
+}
 </script>
 
 </body>
