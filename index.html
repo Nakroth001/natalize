@@ -494,6 +494,67 @@ footer p {
   .benefits { gap: 15px; }
   .promo { margin: 5px 5% 45px; }
 }
+  /* RODAPÉ PROFISSIONAL */
+footer {
+  background: linear-gradient(135deg, #130c0b, #2b1012);
+  color: #fff;
+  padding: 45px 7% 20px;
+  border-top: 2px solid #d6aa58;
+  margin-top: 50px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 35px;
+}
+
+.footer-brand h2 {
+  color: #e5bd70;
+  font-size: 27px;
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+}
+
+.footer-brand p {
+  color: #d8cccc;
+  max-width: 300px;
+  line-height: 1.6;
+}
+
+.footer-info h3 {
+  color: #e5bd70;
+  margin-bottom: 12px;
+}
+
+.footer-info p,
+.footer-info a {
+  color: #e8dddd;
+  text-decoration: none;
+  line-height: 2;
+}
+
+.footer-info a:hover {
+  color: #e5bd70;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.15);
+  margin-top: 30px;
+  padding-top: 18px;
+  text-align: center;
+  color: #bcaeae;
+  font-size: 13px;
+}
+
+@media (max-width: 600px) {
+  .footer-content {
+    flex-direction: column;
+    gap: 25px;
+  }
+}
 </style>
 </head>
 
@@ -549,9 +610,37 @@ footer p {
 </main>
 
 <footer>
-  <strong>NATALIZE</strong>
-  <p>Especial de Natal | Esquenta Black Friday</p>
-  <p>© <span id="year"></span> Natalize. Todos os direitos reservados.</p>
+  <div class="footer-content">
+
+    <div class="footer-brand">
+      <h2>NATALIZE</h2>
+      <p>
+        O encanto do Natal começa aqui.
+        Encontre produtos especiais para deixar
+        sua celebração ainda mais bonita.
+      </p>
+    </div>
+
+    <div class="footer-info">
+      <h3>Atendimento</h3>
+      <p>Entre em contato com nossa equipe.</p>
+      <a href="#" onclick="contactStore(); return false;">
+        Fale conosco pelo WhatsApp
+      </a>
+    </div>
+
+    <div class="footer-info">
+      <h3>Compra segura</h3>
+      <p>Atendimento personalizado</p>
+      <p>Ofertas especiais de Natal</p>
+      <p>Suporte ao cliente</p>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    © 2026 NATALIZE — Especial de Natal. Todos os direitos reservados.
+  </div>
 </footer>
 
 <!-- MODAL DE FOTOS -->
