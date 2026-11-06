@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -36,6 +35,9 @@ button {
   font: inherit;
   cursor: pointer;
 }
+
+/* CABEÇALHO */
+
 header {
   background: linear-gradient(110deg, #130c0b, #351014, #170c0b);
   color: white;
@@ -89,12 +91,6 @@ header .header-tag {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .snowflake {
-    animation: none;
-    display: none;
-  }
-}
 .logo {
   font-family: 'Playfair Display', serif;
   font-size: 27px;
@@ -117,6 +113,8 @@ header .header-tag {
   color: #f0d9ad;
   font-weight: 700;
 }
+
+/* DESTAQUE PRINCIPAL */
 
 .hero {
   background:
@@ -186,6 +184,8 @@ header .header-tag {
   background: #f5d48b;
 }
 
+/* BENEFÍCIOS */
+
 .benefits {
   display: flex;
   justify-content: center;
@@ -201,6 +201,8 @@ header .header-tag {
   font-weight: 700;
   color: #59483c;
 }
+
+/* PRODUTOS */
 
 .products {
   padding: 65px 7%;
@@ -348,6 +350,8 @@ header .header-tag {
   transform: translateY(-2px);
 }
 
+/* PROMOÇÃO */
+
 .promo {
   margin: 10px 7% 65px;
   padding: 38px 25px;
@@ -368,23 +372,61 @@ header .header-tag {
   font-size: 14px;
 }
 
+/* RODAPÉ */
+
 footer {
-  background: var(--dark);
-  color: white;
+  background: linear-gradient(135deg, #130c0b, #2b1012);
+  color: #fff;
+  text-align: left;
+  padding: 45px 7% 20px;
+  border-top: 2px solid #d6aa58;
+  margin-top: 50px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 35px;
+}
+
+.footer-brand h2 {
+  color: #e5bd70;
+  font-size: 27px;
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+}
+
+.footer-brand p {
+  color: #d8cccc;
+  max-width: 300px;
+  line-height: 1.6;
+}
+
+.footer-info h3 {
+  color: #e5bd70;
+  margin-bottom: 12px;
+}
+
+.footer-info p,
+.footer-info a {
+  color: #e8dddd;
+  text-decoration: none;
+  line-height: 2;
+}
+
+.footer-info a:hover {
+  color: #e5bd70;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,.15);
+  margin-top: 30px;
+  padding-top: 18px;
   text-align: center;
-  padding: 35px 15px;
-}
-
-footer strong {
-  color: var(--gold);
-  font-family: 'Playfair Display',serif;
-  font-size: 23px;
-}
-
-footer p {
-  font-size: 12px;
-  color: #c6b9ad;
-  margin-top: 9px;
+  color: #bcaeae;
+  font-size: 13px;
 }
 
 /* GALERIA */
@@ -477,79 +519,51 @@ footer p {
   border-color: var(--gold);
 }
 
+/* RESPONSIVIDADE */
+
 @media(max-width: 850px) {
   .product-grid {
     grid-template-columns: repeat(2,minmax(0,1fr));
   }
 }
 
-@media(max-width: 580px) {
-  header { padding: 15px 5%; }
-  .header-tag { font-size: 10px; }
-  .hero { padding: 60px 18px; }
-  .products { padding: 45px 5%; }
-  .product-grid { grid-template-columns: 1fr; }
-  .product-image { height: 320px; }
-  .product-info { padding: 20px; }
-  .benefits { gap: 15px; }
-  .promo { margin: 5px 5% 45px; }
-}
-  /* RODAPÉ PROFISSIONAL */
-footer {
-  background: linear-gradient(135deg, #130c0b, #2b1012);
-  color: #fff;
-  padding: 45px 7% 20px;
-  border-top: 2px solid #d6aa58;
-  margin-top: 50px;
-}
+@media(max-width: 600px) {
+  header {
+    padding: 15px 5%;
+  }
 
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 35px;
-}
+  .header-tag {
+    font-size: 10px;
+  }
 
-.footer-brand h2 {
-  color: #e5bd70;
-  font-size: 27px;
-  letter-spacing: 3px;
-  margin-bottom: 8px;
-}
+  .hero {
+    padding: 60px 18px;
+  }
 
-.footer-brand p {
-  color: #d8cccc;
-  max-width: 300px;
-  line-height: 1.6;
-}
+  .products {
+    padding: 45px 5%;
+  }
 
-.footer-info h3 {
-  color: #e5bd70;
-  margin-bottom: 12px;
-}
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
 
-.footer-info p,
-.footer-info a {
-  color: #e8dddd;
-  text-decoration: none;
-  line-height: 2;
-}
+  .product-image {
+    height: 320px;
+  }
 
-.footer-info a:hover {
-  color: #e5bd70;
-}
+  .product-info {
+    padding: 20px;
+  }
 
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,.15);
-  margin-top: 30px;
-  padding-top: 18px;
-  text-align: center;
-  color: #bcaeae;
-  font-size: 13px;
-}
+  .benefits {
+    gap: 15px;
+  }
 
-@media (max-width: 600px) {
+  .promo {
+    margin: 5px 5% 45px;
+  }
+
   .footer-content {
     flex-direction: column;
     gap: 25px;
@@ -576,10 +590,12 @@ footer {
 <section class="hero">
   <div class="hero-label">⚡ OFERTAS ESPECIAIS DE NATAL</div>
   <h1>O encanto do Natal<br>começa na <span>sua casa!</span></h1>
+
   <p>
     Árvores, enfeites e kits especiais para transformar
     sua decoração. Aproveite nossas ofertas de Esquenta Black Friday!
   </p>
+
   <a href="#produtos" class="hero-button">VER OFERTAS ↓</a>
 </section>
 
@@ -639,7 +655,7 @@ footer {
   </div>
 
   <div class="footer-bottom">
-    © 2026 NATALIZE — Especial de Natal. Todos os direitos reservados.
+    © <span id="year"></span> NATALIZE — Especial de Natal. Todos os direitos reservados.
   </div>
 </footer>
 
@@ -650,11 +666,13 @@ footer {
     <button class="close" onclick="closeGallery()">×</button>
     <h3 id="galleryTitle"></h3>
     <img class="modal-main-image" id="mainImage" src="" alt="Foto do produto">
+
     <div class="gallery-controls">
       <button onclick="changeImage(-1)">‹</button>
       <span id="imageCounter"></span>
       <button onclick="changeImage(1)">›</button>
     </div>
+
     <div class="thumbnails" id="thumbnails"></div>
   </div>
 </div>
@@ -672,9 +690,6 @@ const WHATSAPP_NUMBER = "5533999999999";
 // ======================================
 // PRODUTOS E IMAGENS
 // ======================================
-
-// Coloque as fotos na pasta "assets" do GitHub.
-// Os nomes abaixo devem corresponder aos arquivos enviados.
 
 const products = [
   {
@@ -700,7 +715,7 @@ const products = [
       "foto2.png",
       "foto3.png",
       "foto4.png",
-      "foto5.png",
+      "foto5.png"
     ]
   },
   {
@@ -724,6 +739,7 @@ function renderProducts() {
     <article class="product-card">
       <div class="product-image">
         <span class="discount">ESQUENTA BLACK FRIDAY</span>
+
         <img
           src="${product.images[0]}"
           alt="${product.name}"
@@ -782,6 +798,7 @@ function updateGallery() {
   const image = currentProduct.images[currentIndex];
 
   document.getElementById("mainImage").src = image;
+
   document.getElementById("mainImage").onerror = function() {
     this.src = "https://placehold.co/600x500/f0e5d8/76151d?text=Foto+do+Produto";
   };
@@ -823,10 +840,12 @@ document.getElementById("galleryModal").addEventListener("click", e => {
 
 document.addEventListener("keydown", e => {
   if (e.key === "Escape") closeGallery();
+
   if (e.key === "ArrowRight" &&
       document.getElementById("galleryModal").classList.contains("active")) {
     changeImage(1);
   }
+
   if (e.key === "ArrowLeft" &&
       document.getElementById("galleryModal").classList.contains("active")) {
     changeImage(-1);
@@ -856,22 +875,44 @@ function buyProduct(id) {
   window.open(url, "_blank");
 }
 
+// CONTATO PELO RODAPÉ
+
+function contactStore() {
+  if (!WHATSAPP_NUMBER || WHATSAPP_NUMBER === "5533999999999") {
+    alert("Configure o número do WhatsApp da loja no código antes de receber contatos.");
+    return;
+  }
+
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}`, "_blank");
+}
+
+// ATUALIZAR ANO DO RODAPÉ
+
 document.getElementById("year").textContent = new Date().getFullYear();
+
+// ======================================
+// NEVE ANIMADA NO CABEÇALHO
+// ======================================
+
 const snowContainer = document.getElementById("snow");
 
 if (snowContainer) {
   for (let i = 0; i < 35; i++) {
     const flake = document.createElement("span");
+
     flake.className = "snowflake";
     flake.textContent = "❄";
+
     flake.style.setProperty("--left", Math.random() * 100 + "%");
     flake.style.setProperty("--size", (7 + Math.random() * 12) + "px");
     flake.style.setProperty("--duration", (3 + Math.random() * 6) + "s");
     flake.style.setProperty("--delay", (-Math.random() * 8) + "s");
     flake.style.setProperty("--drift", (-25 + Math.random() * 50) + "px");
+
     snowContainer.appendChild(flake);
   }
 }
+
 </script>
 
 </body>
