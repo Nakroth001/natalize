@@ -1,573 +1,94 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#17100e">
-<title>Natalize | Especial de Natal</title>
-<meta name="description" content="Encontre árvores de Natal e kits de decoração com ofertas especiais de Black Friday.">
-
+<title>NATALIZE | Especial de Natal</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
 
 :root {
-  --red: #a91f28;
-  --red-dark: #76151d;
-  --gold: #e6bb65;
-  --cream: #fffaf1;
-  --dark: #17100e;
-  --muted: #756d66;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: #fffaf5;
-  color: var(--dark);
-}
-
-button {
-  font: inherit;
-  cursor: pointer;
-}
-
-/* CABEÇALHO */
-
-header {
-  background: linear-gradient(110deg, #130c0b, #351014, #170c0b);
-  color: white;
-  padding: 20px 7%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 2px solid #d6aa58;
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-  min-height: 85px;
-}
-
-header .logo,
-header .header-tag {
-  position: relative;
-  z-index: 2;
-}
-
-.snow-container {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-  z-index: 1;
-}
-
-.snowflake {
-  position: absolute;
-  top: -15px;
-  color: #fff;
-  opacity: 0.8;
-  font-size: var(--size);
-  left: var(--left);
-  animation: snowFall var(--duration) linear infinite;
-  animation-delay: var(--delay);
-  text-shadow: 0 0 8px rgba(255,255,255,.8);
-}
-
-@keyframes snowFall {
-  0% {
-    transform: translate3d(0,-15px,0) rotate(0deg);
-    opacity: 0;
-  }
-  10% { opacity: .85; }
-  90% { opacity: .7; }
-  100% {
-    transform: translate3d(var(--drift),110px,0) rotate(360deg);
-    opacity: 0;
-  }
-}
-
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 27px;
-  color: var(--gold);
-  font-weight: 800;
-  letter-spacing: 2px;
-}
-
-.logo small {
-  display: block;
-  font-family: 'DM Sans', sans-serif;
-  font-size: 9px;
-  color: white;
-  letter-spacing: 4px;
-  text-align: center;
-}
-
-.header-tag {
-  font-size: 12px;
-  color: #f0d9ad;
-  font-weight: 700;
-}
-
-/* DESTAQUE PRINCIPAL */
-
-.hero {
-  background:
-    linear-gradient(100deg, rgba(20,8,7,.95), rgba(75,13,18,.87)),
-    radial-gradient(circle at 80% 20%, #9e3430, transparent 50%);
-  color: white;
-  padding: 75px 20px 85px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: "✦";
-  position: absolute;
-  font-size: 180px;
-  color: rgba(230,187,101,.08);
-  top: -45px;
-  left: 4%;
-}
-
-.hero-label {
-  display: inline-block;
-  background: var(--gold);
-  color: #32170e;
-  padding: 9px 18px;
-  border-radius: 30px;
-  font-weight: 800;
-  font-size: 12px;
-  letter-spacing: 1px;
-  margin-bottom: 20px;
-}
-
-.hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(36px, 6vw, 65px);
-  line-height: 1.1;
-  max-width: 850px;
-  margin: auto;
-}
-
-.hero h1 span {
-  color: var(--gold);
-}
-
-.hero p {
-  color: #e8d9ce;
-  margin: 18px auto 25px;
-  max-width: 550px;
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-.hero-button {
-  display: inline-block;
-  padding: 15px 28px;
-  background: var(--gold);
-  color: #29140e;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 800;
-  transition: .2s;
-}
-
-.hero-button:hover {
-  transform: translateY(-3px);
-  background: #f5d48b;
-}
-
-/* BENEFÍCIOS */
-
-.benefits {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 35px;
-  padding: 22px 15px;
-  background: white;
-  border-bottom: 1px solid #eee3d7;
-}
-
-.benefits span {
-  font-size: 13px;
-  font-weight: 700;
-  color: #59483c;
-}
-
-/* PRODUTOS */
-
-.products {
-  padding: 65px 7%;
-  max-width: 1450px;
-  margin: auto;
-}
-
-.section-title {
-  text-align: center;
-  margin-bottom: 38px;
-}
-
-.section-title small {
-  color: var(--red);
-  font-weight: 800;
-  letter-spacing: 2px;
-}
-
-.section-title h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(29px, 4vw, 40px);
-  margin: 10px 0;
-}
-
-.section-title p {
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.product-grid {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 25px;
-}
-
-.product-card {
-  background: white;
-  border: 1px solid #eee5db;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 7px 25px rgba(40,20,10,.06);
-  transition: .25s;
-}
-
-.product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 15px 35px rgba(40,20,10,.12);
-}
-
-.product-image {
-  position: relative;
-  height: 290px;
-  background: linear-gradient(140deg,#f1e5d7,#e5d4bf);
-  overflow: hidden;
-}
-
-.product-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  cursor: zoom-in;
-}
-
-.discount {
-  position: absolute;
-  top: 14px;
-  left: 14px;
-  background: var(--red);
-  color: white;
-  font-size: 11px;
-  font-weight: 800;
-  padding: 8px 12px;
-  border-radius: 5px;
-  z-index: 1;
-}
-
-.product-info {
-  padding: 22px;
-}
-
-.product-info h3 {
-  font-size: 18px;
-  margin-bottom: 9px;
-}
-
-.description {
-  color: var(--muted);
-  font-size: 13px;
-  line-height: 1.7;
-  min-height: 65px;
-}
-
-.old-price {
-  color: #999;
-  text-decoration: line-through;
-  font-size: 14px;
-  margin-top: 16px;
-}
-
-.price {
-  color: var(--red);
-  font-size: 32px;
-  font-weight: 800;
-  margin: 3px 0;
-}
-
-.price small {
-  font-size: 13px;
-}
-
-.cash {
-  color: #43814c;
-  font-size: 12px;
-  font-weight: 700;
-}
-
-.actions {
-  display: flex;
-  gap: 9px;
-  margin-top: 20px;
-}
-
-.btn {
-  border: none;
-  border-radius: 7px;
-  padding: 13px 10px;
-  font-weight: 800;
-  font-size: 12px;
-  flex: 1;
-  transition: .2s;
-}
-
-.btn-gallery {
-  background: #f2e9df;
-  color: #38271e;
-}
-
-.btn-buy {
-  background: var(--red);
-  color: white;
-}
-
-.btn:hover {
-  filter: brightness(.92);
-  transform: translateY(-2px);
-}
-
-/* PROMOÇÃO */
-
-.promo {
-  margin: 10px 7% 65px;
-  padding: 38px 25px;
-  text-align: center;
-  color: white;
-  background: linear-gradient(110deg,#76151d,#a91f28);
-  border-radius: 14px;
-}
-
-.promo h2 {
-  font-family: 'Playfair Display',serif;
-  font-size: 30px;
-  margin-bottom: 10px;
-}
-
-.promo p {
-  color: #f5dede;
-  font-size: 14px;
-}
-
-/* RODAPÉ */
-
-footer {
-  background: linear-gradient(135deg, #130c0b, #2b1012);
-  color: #fff;
-  text-align: left;
-  padding: 45px 7% 20px;
-  border-top: 2px solid #d6aa58;
-  margin-top: 50px;
-}
-
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  gap: 35px;
-}
-
-.footer-brand h2 {
-  color: #e5bd70;
-  font-size: 27px;
-  letter-spacing: 3px;
-  margin-bottom: 8px;
-}
-
-.footer-brand p {
-  color: #d8cccc;
-  max-width: 300px;
-  line-height: 1.6;
-}
-
-.footer-info h3 {
-  color: #e5bd70;
-  margin-bottom: 12px;
-}
-
-.footer-info p,
-.footer-info a {
-  color: #e8dddd;
-  text-decoration: none;
-  line-height: 2;
-}
-
-.footer-info a:hover {
-  color: #e5bd70;
-}
-
-.footer-bottom {
-  border-top: 1px solid rgba(255,255,255,.15);
-  margin-top: 30px;
-  padding-top: 18px;
-  text-align: center;
-  color: #bcaeae;
-  font-size: 13px;
-}
-
-/* GALERIA */
-
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.91);
-  z-index: 1000;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.modal.active {
-  display: flex;
-}
-
-.modal-content {
-  width: 100%;
-  max-width: 750px;
-  text-align: center;
-  color: white;
-  position: relative;
-}
-
-.modal-content h3 {
-  margin-bottom: 15px;
-}
-
-.modal-main-image {
-  height: min(65vh,550px);
-  width: 100%;
-  object-fit: contain;
-  background: #211b18;
-  border-radius: 10px;
-}
-
-.close {
-  position: absolute;
-  right: 0;
-  top: -45px;
-  background: none;
-  border: none;
-  color: white;
-  font-size: 35px;
-}
-
-.gallery-controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  margin-top: 15px;
-}
-
-.gallery-controls button {
-  background: var(--gold);
-  border: none;
-  border-radius: 50%;
-  width: 42px;
-  height: 42px;
-  font-size: 20px;
-  font-weight: 800;
-}
-
-.gallery-controls span {
-  font-size: 13px;
-}
-
-.thumbnails {
-  display: flex;
-  gap: 9px;
-  justify-content: center;
-  margin-top: 15px;
-  flex-wrap: wrap;
-}
-
-.thumbnails img {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 5px;
-  cursor: pointer;
-  border: 2px solid transparent;
-}
-
-.thumbnails img.selected {
-  border-color: var(--gold);
-}
-
-/* RESPONSIVIDADE */
-
-@media(max-width: 850px) {
-  .product-grid {
-    grid-template-columns: repeat(2,minmax(0,1fr));
-  }
-}
-
-@media(max-width: 600px) {
-  header {
-    padding: 15px 5%;
-  }
-
-  .header-tag {
-    font-size: 10px;
-  }
-
-  .hero {
-    padding: 60px 18px;
-  }
-
-  .products {
-    padding: 45px 5%;
-  }
-
-  .product-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .product-image {
-    height: 320px;
-  }
-
-  .product-info {
-    padding: 20px;
-  }
-
-  .benefits {
-    gap: 15px;
-  }
-
-  .promo {
-    margin: 5px 5% 45px;
-  }
-
-  .footer-content {
-    flex-direction: column;
-    gap: 25px;
-  }
+  --red:#a91f28;
+  --red-dark:#76151d;
+  --gold:#e6bb65;
+  --dark:#17100e;
+  --cream:#fffaf1;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:#fffaf5;color:var(--dark)}
+header{
+  background:linear-gradient(110deg,#130c0b,#351014,#170c0b);
+  color:white;padding:20px 7%;display:flex;
+  justify-content:space-between;align-items:center;
+  border-bottom:2px solid var(--gold);
+  position:relative;overflow:hidden;isolation:isolate;
+  min-height:85px
+}
+.logo,.header-tag{position:relative;z-index:2}
+.logo{font-family:'Playfair Display',serif;font-size:27px;color:var(--gold);font-weight:800;letter-spacing:2px}
+.logo small{display:block;font-family:'DM Sans',sans-serif;font-size:9px;color:white;letter-spacing:4px;text-align:center}
+.header-tag{font-size:12px;color:#f0d9ad;font-weight:700}
+.snow-container{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.snowflake{position:absolute;top:-15px;color:white;opacity:.8;font-size:var(--size);left:var(--left);animation:snowFall var(--duration) linear infinite;animation-delay:var(--delay);text-shadow:0 0 8px white}
+@keyframes snowFall{
+  0%{transform:translate3d(0,-15px,0) rotate(0);opacity:0}
+  10%{opacity:.85}
+  90%{opacity:.7}
+  100%{transform:translate3d(var(--drift),110px,0) rotate(360deg);opacity:0}
+}
+.hero{
+  background:linear-gradient(100deg,rgba(20,8,7,.95),rgba(75,13,18,.87));
+  color:white;padding:75px 20px 85px;text-align:center;
+  position:relative;overflow:hidden
+}
+.hero-label{display:inline-block;background:var(--gold);color:#32170e;padding:9px 18px;border-radius:30px;font-weight:800;font-size:12px;letter-spacing:1px;margin-bottom:20px}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,6vw,65px);line-height:1.1}
+.hero h1 span{color:var(--gold)}
+.hero p{color:#e8d9ce;margin:18px auto 25px;max-width:550px;font-size:16px;line-height:1.7}
+.hero-button{display:inline-block;padding:15px 28px;background:var(--gold);color:#29140e;border-radius:8px;text-decoration:none;font-weight:800}
+.benefits{display:flex;justify-content:center;flex-wrap:wrap;gap:35px;padding:22px 15px;background:white;border-bottom:1px solid #eee3d7}
+.benefits span{font-size:13px;font-weight:700;color:#59483c}
+.products{padding:65px 7%;max-width:1450px;margin:auto}
+.section-title{text-align:center;margin-bottom:38px}
+.section-title small{color:var(--red);font-weight:800;letter-spacing:2px}
+.section-title h2{font-family:'Playfair Display',serif;font-size:clamp(29px,4vw,40px);margin:10px 0}
+.section-title p{color:#756d66;font-size:14px}
+.product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px}
+.product-card{background:white;border:1px solid #eee5db;border-radius:14px;overflow:hidden;box-shadow:0 7px 25px #28140a10;transition:.25s}
+.product-card:hover{transform:translateY(-6px);box-shadow:0 15px 35px #28140a20}
+.product-image{height:290px;background:#f1e5d7;overflow:hidden;position:relative}
+.product-image img{width:100%;height:100%;object-fit:contain}
+.discount{position:absolute;top:14px;left:14px;background:var(--red);color:white;font-size:11px;font-weight:800;padding:8px 12px;border-radius:5px}
+.product-info{padding:22px}
+.product-info h3{font-size:18px;margin-bottom:9px}
+.description{color:#756d66;font-size:13px;line-height:1.7;min-height:65px}
+.old-price{color:#999;text-decoration:line-through;font-size:14px;margin-top:16px}
+.price{color:var(--red);font-size:32px;font-weight:800;margin:3px 0}
+.cash{color:#43814c;font-size:12px;font-weight:700}
+.btn{display:block;text-align:center;text-decoration:none;border:0;border-radius:7px;padding:14px 10px;font-weight:800;font-size:12px;background:var(--red);color:white;margin-top:18px;transition:.2s}
+.btn:hover{filter:brightness(.9);transform:translateY(-2px)}
+.promo{margin:10px 7% 65px;padding:38px 25px;text-align:center;color:white;background:linear-gradient(110deg,#76151d,#a91f28);border-radius:14px}
+.promo h2{font-family:'Playfair Display',serif;font-size:30px;margin-bottom:10px}
+.promo p{color:#f5dede;font-size:14px}
+footer{background:linear-gradient(135deg,#130c0b,#2b1012);color:white;padding:45px 7% 20px;border-top:2px solid var(--gold);margin-top:50px}
+.footer-content{display:flex;justify-content:space-between;flex-wrap:wrap;gap:35px}
+.footer-brand h2{color:var(--gold);font-size:27px;letter-spacing:3px;margin-bottom:8px}
+.footer-brand p,.footer-info p,.footer-info a{color:#e8dddd;line-height:2;text-decoration:none}
+.footer-info h3{color:var(--gold);margin-bottom:12px}
+.footer-bottom{border-top:1px solid #ffffff25;margin-top:30px;padding-top:18px;text-align:center;color:#bcaeae;font-size:13px}
+@media(max-width:850px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){
+  header{padding:15px 5%}
+  .header-tag{font-size:10px}
+  .hero{padding:60px 18px}
+  .products{padding:45px 5%}
+  .product-grid{grid-template-columns:1fr}
+  .product-image{height:320px}
+  .benefits{gap:15px}
+  .promo{margin:5px 5% 45px}
+  .footer-content{flex-direction:column;gap:25px}
 }
 </style>
 </head>
@@ -576,26 +97,14 @@ footer {
 
 <header>
   <div class="snow-container" id="snow"></div>
-
-  <div class="logo">
-    NATALIZE
-    <small>ESPECIAL DE NATAL</small>
-  </div>
-
-  <div class="header-tag">
-    🎄 ESQUENTA BLACK FRIDAY
-  </div>
+  <div class="logo">NATALIZE<small>ESPECIAL DE NATAL</small></div>
+  <div class="header-tag">🎄 ESQUENTA BLACK FRIDAY</div>
 </header>
 
 <section class="hero">
   <div class="hero-label">⚡ OFERTAS ESPECIAIS DE NATAL</div>
   <h1>O encanto do Natal<br>começa na <span>sua casa!</span></h1>
-
-  <p>
-    Árvores, enfeites e kits especiais para transformar
-    sua decoração. Aproveite nossas ofertas de Esquenta Black Friday!
-  </p>
-
+  <p>Árvores, enfeites e kits especiais para transformar sua decoração. Aproveite nossas ofertas!</p>
   <a href="#produtos" class="hero-button">VER OFERTAS ↓</a>
 </section>
 
@@ -603,20 +112,17 @@ footer {
   <span>🎄 Decoração de Natal</span>
   <span>✨ Ofertas especiais</span>
   <span>🎁 Kits completos</span>
-  <span>💬 Atendimento pelo WhatsApp</span>
+  <span>💬 Atendimento ao cliente</span>
 </div>
 
 <main>
 <section class="products" id="produtos">
-
   <div class="section-title">
     <small>SELEÇÃO ESPECIAL</small>
     <h2>Nossas ofertas de Natal</h2>
-    <p>Escolha seu produto e veja todos os detalhes e imagens.</p>
+    <p>Escolha seu produto e conheça todos os detalhes.</p>
   </div>
-
   <div class="product-grid" id="productGrid"></div>
-
 </section>
 
 <section class="promo">
@@ -627,293 +133,96 @@ footer {
 
 <footer>
   <div class="footer-content">
-
     <div class="footer-brand">
       <h2>NATALIZE</h2>
-      <p>
-        O encanto do Natal começa aqui.
-        Encontre produtos especiais para deixar
-        sua celebração ainda mais bonita.
-      </p>
+      <p>O encanto do Natal começa aqui. Encontre produtos especiais para deixar sua celebração ainda mais bonita.</p>
     </div>
-
     <div class="footer-info">
       <h3>Atendimento</h3>
       <p>Entre em contato com nossa equipe.</p>
-      <a href="#" onclick="contactStore(); return false;">
-        Fale conosco pelo WhatsApp
-      </a>
+      <a href="#" onclick="contactStore();return false;">Fale conosco pelo WhatsApp</a>
     </div>
-
     <div class="footer-info">
       <h3>Compra segura</h3>
-      <p>Atendimento personalizado</p>
       <p>Ofertas especiais de Natal</p>
       <p>Suporte ao cliente</p>
     </div>
-
   </div>
-
   <div class="footer-bottom">
     © <span id="year"></span> NATALIZE — Especial de Natal. Todos os direitos reservados.
   </div>
 </footer>
 
-<!-- MODAL DE FOTOS -->
-
-<div class="modal" id="galleryModal">
-  <div class="modal-content">
-    <button class="close" onclick="closeGallery()">×</button>
-    <h3 id="galleryTitle"></h3>
-    <img class="modal-main-image" id="mainImage" src="" alt="Foto do produto">
-
-    <div class="gallery-controls">
-      <button onclick="changeImage(-1)">‹</button>
-      <span id="imageCounter"></span>
-      <button onclick="changeImage(1)">›</button>
-    </div>
-
-    <div class="thumbnails" id="thumbnails"></div>
-  </div>
-</div>
-
 <script>
-
-// ======================================
-// CONFIGURAÇÕES DA LOJA
-// ======================================
-
-// Coloque seu WhatsApp com DDI + DDD.
-// Exemplo: 5533999999999
 const WHATSAPP_NUMBER = "5533999999999";
-
-// ======================================
-// PRODUTOS E IMAGENS
-// ======================================
 
 const products = [
   {
-    id: 1,
-    name: "Árvore de Natal 2 metros",
-    description: "Deixe seu lar no clima Natalino! Árvore de Natal de 2,10m com 1.100 galhos + pisca-pisca incluso. Uma excelente opção para uma decoração especial de Natal!",
-    oldPrice: "189,75",
-    price: "98,35",
-    images: [
-      "arvore2mcapa.png",
-      "arvore2mfoto2.png",
-      "arvore2mfoto3.png"
-    ]
+    id:1,
+    name:"Árvore de Natal 2 metros",
+    description:"Deixe seu lar no clima Natalino! Árvore de Natal de 2,10m com 1.100 galhos + pisca-pisca incluso. Uma excelente opção para uma decoração especial de Natal!",
+    oldPrice:"189,75",
+    price:"98,35",
+    image:"arvore2mcapa.png"
   },
   {
-    id: 2,
-    name: "Kit Árvore de Natal Completo",
-    description: "Deseja Praticidade e Qualidade? Adquira agora mesmo o Kit copleto com uma Árvore de 1,80m com 900 galhos, pisca-pisca, 16 bolinhas, 5 festões e uma estrela com led para o topo + binde surpresa!",
-    oldPrice: "438,90",
-    price: "189,99",
-    images: [
-      "foto1.png",
-      "foto2.png",
-      "foto3.png",
-      "foto4.png",
-      "foto5.png"
-    ]
+    id:2,
+    name:"Kit Árvore de Natal Completo",
+    description:"Kit completo com uma árvore de 1,80m com 900 galhos, pisca-pisca, 16 bolinhas, 5 festões e uma estrela com LED para o topo + brinde surpresa!",
+    oldPrice:"438,90",
+    price:"189,99",
+    image:"foto1.png"
   },
   {
-    id: 3,
-    name: "Kit 130 Enfeites de Natal",
-    description: "Decore como quiser com Um kit completo para deixar sua árvore e sua casa ainda mais bonitas no clima natalino! *intens inclusos listados na foto*",
-    oldPrice: "139,70",
-    price: "79,90",
-    images: [
-      "kit1.png",
-      "kit2.png",
-      "kit3.png"
-    ]
+    id:3,
+    name:"Kit 130 Enfeites de Natal",
+    description:"Decore como quiser com um kit completo para deixar sua árvore e sua casa ainda mais bonitas no clima natalino! Itens inclusos listados na foto.",
+    oldPrice:"139,70",
+    price:"79,90",
+    image:"kit1.png"
   }
 ];
 
-const grid = document.getElementById("productGrid");
-
-function renderProducts() {
-  grid.innerHTML = products.map(product => `
-    <article class="product-card">
-      <div class="product-image">
-        <span class="discount">ESQUENTA BLACK FRIDAY</span>
-
-        <img
-          src="${product.images[0]}"
-          alt="${product.name}"
-          onerror="this.src='https://placehold.co/600x500/f0e5d8/76151d?text=Foto+do+Produto'"
-          onclick="openGallery(${product.id})"
-        >
-      </div>
-
-      <div class="product-info">
-        <h3>${product.name}</h3>
-        <p class="description">${product.description}</p>
-
-        <div class="old-price">De: R$ ${product.oldPrice}</div>
-        <div class="price">R$ ${product.price}</div>
-        <div class="cash">À VISTA</div>
-
-        <div class="actions">
-          <button class="btn btn-gallery"
-            onclick="openGallery(${product.id})">
-            📷 VER FOTOS
-          </button>
-
-          <button class="btn btn-buy"
-            onclick="buyProduct(${product.id})">
-            COMPRAR
-          </button>
-        </div>
-      </div>
-    </article>
-  `).join("");
-}
-
-renderProducts();
-
-// ======================================
-// GALERIA DE FOTOS
-// ======================================
-
-let currentProduct = null;
-let currentIndex = 0;
-
-function openGallery(id) {
-  currentProduct = products.find(p => p.id === id);
-  currentIndex = 0;
-
-  document.getElementById("galleryTitle").textContent =
-    currentProduct.name;
-
-  updateGallery();
-
-  document.getElementById("galleryModal").classList.add("active");
-  document.body.style.overflow = "hidden";
-}
-
-function updateGallery() {
-  const image = currentProduct.images[currentIndex];
-
-  document.getElementById("mainImage").src = image;
-
-  document.getElementById("mainImage").onerror = function() {
-    this.src = "https://placehold.co/600x500/f0e5d8/76151d?text=Foto+do+Produto";
-  };
-
-  document.getElementById("imageCounter").textContent =
-    `${currentIndex + 1} / ${currentProduct.images.length}`;
-
-  document.getElementById("thumbnails").innerHTML =
-    currentProduct.images.map((src, index) => `
-      <img src="${src}"
-        class="${index === currentIndex ? 'selected' : ''}"
-        onclick="selectImage(${index})"
-        onerror="this.style.display='none'"
-        alt="Miniatura ${index + 1}">
-    `).join("");
-}
-
-function changeImage(direction) {
-  currentIndex =
-    (currentIndex + direction + currentProduct.images.length)
-    % currentProduct.images.length;
-
-  updateGallery();
-}
-
-function selectImage(index) {
-  currentIndex = index;
-  updateGallery();
-}
-
-function closeGallery() {
-  document.getElementById("galleryModal").classList.remove("active");
-  document.body.style.overflow = "";
-}
-
-document.getElementById("galleryModal").addEventListener("click", e => {
-  if (e.target.id === "galleryModal") closeGallery();
-});
-
-document.addEventListener("keydown", e => {
-  if (e.key === "Escape") closeGallery();
-
-  if (e.key === "ArrowRight" &&
-      document.getElementById("galleryModal").classList.contains("active")) {
-    changeImage(1);
-  }
-
-  if (e.key === "ArrowLeft" &&
-      document.getElementById("galleryModal").classList.contains("active")) {
-    changeImage(-1);
-  }
-});
-
-// ======================================
-// PEDIDOS PELO WHATSAPP
-// ======================================
-
-function buyProduct(id) {
-  const product = products.find(p => p.id === id);
-
-  if (!WHATSAPP_NUMBER || WHATSAPP_NUMBER === "5533999999999") {
-    alert("Configure o número do WhatsApp da loja no código antes de receber pedidos.");
-    return;
-  }
-
-  const message =
-    `Olá! Vim pela loja Natalize e tenho interesse em:\n\n` +
-    `🎄 ${product.name}\n` +
-    `💰 R$ ${product.price} à vista\n\n` +
-    `Gostaria de mais informações sobre a compra!`;
-
-  const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
-
-  window.open(url, "_blank");
-}
-
-// CONTATO PELO RODAPÉ
-
-function contactStore() {
-  if (!WHATSAPP_NUMBER || WHATSAPP_NUMBER === "5533999999999") {
-    alert("Configure o número do WhatsApp da loja no código antes de receber contatos.");
-    return;
-  }
-
-  window.open(`https://wa.me/${WHATSAPP_NUMBER}`, "_blank");
-}
-
-// ATUALIZAR ANO DO RODAPÉ
+document.getElementById("productGrid").innerHTML = products.map(product => `
+  <article class="product-card">
+    <div class="product-image">
+      <span class="discount">ESQUENTA BLACK FRIDAY</span>
+      <img src="${product.image}" alt="${product.name}"
+      onerror="this.src='https://placehold.co/600x500/f0e5d8/76151d?text=Foto+do+Produto'">
+    </div>
+    <div class="product-info">
+      <h3>${product.name}</h3>
+      <p class="description">${product.description}</p>
+      <div class="old-price">De: R$ ${product.oldPrice}</div>
+      <div class="price">R$ ${product.price}</div>
+      <div class="cash">À VISTA</div>
+      <a class="btn" href="produto.html?id=${product.id}">VER PRODUTO E COMPRAR →</a>
+    </div>
+  </article>
+`).join("");
 
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// ======================================
-// NEVE ANIMADA NO CABEÇALHO
-// ======================================
-
-const snowContainer = document.getElementById("snow");
-
-if (snowContainer) {
-  for (let i = 0; i < 35; i++) {
-    const flake = document.createElement("span");
-
-    flake.className = "snowflake";
-    flake.textContent = "❄";
-
-    flake.style.setProperty("--left", Math.random() * 100 + "%");
-    flake.style.setProperty("--size", (7 + Math.random() * 12) + "px");
-    flake.style.setProperty("--duration", (3 + Math.random() * 6) + "s");
-    flake.style.setProperty("--delay", (-Math.random() * 8) + "s");
-    flake.style.setProperty("--drift", (-25 + Math.random() * 50) + "px");
-
-    snowContainer.appendChild(flake);
+function contactStore(){
+  if(WHATSAPP_NUMBER === "5533999999999"){
+    alert("Configure o número do WhatsApp da loja no código.");
+    return;
   }
+  window.open("https://wa.me/" + WHATSAPP_NUMBER,"_blank");
 }
 
+const snow = document.getElementById("snow");
+for(let i=0;i<35;i++){
+  const flake=document.createElement("span");
+  flake.className="snowflake";
+  flake.textContent="❄";
+  flake.style.setProperty("--left",Math.random()*100+"%");
+  flake.style.setProperty("--size",(7+Math.random()*12)+"px");
+  flake.style.setProperty("--duration",(3+Math.random()*6)+"s");
+  flake.style.setProperty("--delay",(-Math.random()*8)+"s");
+  flake.style.setProperty("--drift",(-25+Math.random()*50)+"px");
+  snow.appendChild(flake);
+}
 </script>
-
 </body>
 </html>
