@@ -1,0 +1,244 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#17100e">
+<title>Produto | NATALIZE</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
+
+:root{
+  --red:#a91f28;
+  --red-dark:#76151d;
+  --gold:#e6bb65;
+  --dark:#17100e;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:#fffaf5;color:var(--dark)}
+header{
+  background:linear-gradient(110deg,#130c0b,#351014,#170c0b);
+  color:white;padding:20px 7%;display:flex;
+  justify-content:space-between;align-items:center;
+  border-bottom:2px solid var(--gold);
+  position:relative;overflow:hidden;isolation:isolate;
+  min-height:85px
+}
+.logo,.header-tag{position:relative;z-index:2}
+.logo{font-family:'Playfair Display',serif;font-size:27px;color:var(--gold);font-weight:800;letter-spacing:2px}
+.logo small{display:block;font-family:'DM Sans',sans-serif;font-size:9px;color:white;letter-spacing:4px;text-align:center}
+.header-tag{font-size:12px;color:#f0d9ad;font-weight:700}
+.snow-container{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.snowflake{position:absolute;top:-15px;color:white;opacity:.8;font-size:var(--size);left:var(--left);animation:snowFall var(--duration) linear infinite;animation-delay:var(--delay)}
+@keyframes snowFall{
+  0%{transform:translate3d(0,-15px,0);opacity:0}
+  10%{opacity:.85}
+  90%{opacity:.7}
+  100%{transform:translate3d(var(--drift),110px,0) rotate(360deg);opacity:0}
+}
+.container{max-width:1150px;margin:40px auto;padding:0 20px}
+.back{display:inline-block;color:var(--red);font-weight:700;text-decoration:none;margin-bottom:25px}
+.product-layout{display:grid;grid-template-columns:1fr 1fr;gap:45px;align-items:start}
+.gallery-main{height:450px;background:#f1e5d7;border-radius:14px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.gallery-main img{width:100%;height:100%;object-fit:contain}
+.thumbnails{display:flex;gap:10px;margin-top:12px;flex-wrap:wrap}
+.thumbnails img{width:75px;height:75px;object-fit:contain;background:#f1e5d7;border-radius:8px;cursor:pointer;border:2px solid transparent}
+.thumbnails img.selected{border-color:var(--gold)}
+.tag{display:inline-block;background:#f5e5c7;color:#765018;padding:8px 12px;border-radius:5px;font-size:11px;font-weight:800;margin-bottom:15px}
+h1{font-family:'Playfair Display',serif;font-size:clamp(29px,4vw,42px);margin-bottom:15px}
+.description{font-size:15px;line-height:1.8;color:#756d66;margin-bottom:20px}
+.old-price{color:#999;text-decoration:line-through;font-size:16px}
+.price{font-size:38px;color:var(--red);font-weight:800;margin:5px 0}
+.cash{color:#43814c;font-size:13px;font-weight:700;margin-bottom:25px}
+.quantity{display:flex;align-items:center;gap:15px;margin:20px 0}
+.quantity button{width:38px;height:38px;border:1px solid #ddd;background:white;border-radius:6px;font-size:20px}
+.quantity span{font-weight:800;font-size:18px}
+.buy-button{display:block;width:100%;padding:17px;background:var(--red);color:white;text-align:center;text-decoration:none;border:0;border-radius:8px;font-size:15px;font-weight:800;cursor:pointer}
+.buy-button:hover{background:var(--red-dark)}
+.secure{margin-top:18px;padding:15px;background:#f4eee5;border-radius:8px;color:#59483c;font-size:13px;line-height:1.8}
+.details{margin-top:35px;padding-top:25px;border-top:1px solid #eee}
+.details h2{font-family:'Playfair Display',serif;margin-bottom:12px}
+.details p{color:#756d66;line-height:1.8;font-size:14px}
+footer{background:linear-gradient(135deg,#130c0b,#2b1012);color:white;padding:30px 7%;border-top:2px solid var(--gold);text-align:center;margin-top:60px}
+footer strong{color:var(--gold);letter-spacing:3px}
+@media(max-width:750px){
+  header{padding:15px 5%}
+  .header-tag{font-size:10px}
+  .container{margin:25px auto}
+  .product-layout{grid-template-columns:1fr;gap:25px}
+  .gallery-main{height:340px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="snow-container" id="snow"></div>
+  <div class="logo">NATALIZE<small>ESPECIAL DE NATAL</small></div>
+  <div class="header-tag">🎄 ESQUENTA BLACK FRIDAY</div>
+</header>
+
+<main class="container">
+  <a href="index.html" class="back">← VOLTAR À LOJA</a>
+
+  <section class="product-layout">
+    <div>
+      <div class="gallery-main">
+        <img id="mainImage" src="" alt="Imagem do produto">
+      </div>
+      <div class="thumbnails" id="thumbnails"></div>
+    </div>
+
+    <div>
+      <span class="tag">⚡ OFERTA ESPECIAL DE NATAL</span>
+      <h1 id="productName"></h1>
+      <p class="description" id="productDescription"></p>
+
+      <div class="old-price" id="oldPrice"></div>
+      <div class="price" id="price"></div>
+      <div class="cash">À VISTA</div>
+
+      <div class="quantity">
+        <strong>Quantidade:</strong>
+        <button onclick="changeQuantity(-1)">−</button>
+        <span id="quantity">1</span>
+        <button onclick="changeQuantity(1)">+</button>
+      </div>
+
+      <button class="buy-button" onclick="buyProduct()">
+        COMPRAR AGORA →
+      </button>
+
+      <div class="secure">
+        🔒 Ambiente de compra seguro.<br>
+        🎄 Produto selecionado especialmente para o seu Natal.<br>
+        💬 Precisa de ajuda? Entre em contato com nossa equipe.
+      </div>
+
+      <div class="details">
+        <h2>Sobre o produto</h2>
+        <p id="detailsDescription"></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <strong>NATALIZE</strong>
+  <p>O encanto do Natal começa aqui.</p>
+  <p>© <span id="year"></span> NATALIZE — Todos os direitos reservados.</p>
+</footer>
+
+<script>
+const products = {
+  1:{
+    name:"Árvore de Natal 2 metros",
+    description:"Deixe seu lar no clima Natalino! Árvore de Natal de 2,10m com 1.100 galhos + pisca-pisca incluso. Uma excelente opção para uma decoração especial de Natal!",
+    oldPrice:"189,75",
+    price:"98,35",
+    images:["arvore2mcapa.png","arvore2mfoto2.png","arvore2mfoto3.png"],
+    checkout:""
+  },
+  2:{
+    name:"Kit Árvore de Natal Completo",
+    description:"Kit completo com uma árvore de 1,80m com 900 galhos, pisca-pisca, 16 bolinhas, 5 festões e uma estrela com LED para o topo + brinde surpresa!",
+    oldPrice:"438,90",
+    price:"189,99",
+    images:["foto1.png","foto2.png","foto3.png","foto4.png","foto5.png"],
+    checkout:""
+  },
+  3:{
+    name:"Kit 130 Enfeites de Natal",
+    description:"Decore como quiser com um kit completo para deixar sua árvore e sua casa ainda mais bonitas no clima natalino! Itens inclusos listados na foto.",
+    oldPrice:"139,70",
+    price:"79,90",
+    images:["kit1.png","kit2.png","kit3.png"],
+    checkout:""
+  }
+};
+
+const params = new URLSearchParams(window.location.search);
+const id = params.get("id");
+const product = products[id];
+
+let quantity = 1;
+let currentImage = 0;
+
+if(!product){
+  document.querySelector("main").innerHTML = `
+    <h1>Produto não encontrado</h1>
+    <a href="index.html">Voltar para a loja</a>
+  `;
+}else{
+  document.title = product.name + " | NATALIZE";
+
+  document.getElementById("productName").textContent=product.name;
+  document.getElementById("productDescription").textContent=product.description;
+  document.getElementById("detailsDescription").textContent=product.description;
+  document.getElementById("oldPrice").textContent="De: R$ "+product.oldPrice;
+  document.getElementById("price").textContent="R$ "+product.price;
+
+  showImage();
+  showThumbnails();
+}
+
+function showImage(){
+  document.getElementById("mainImage").src=product.images[currentImage];
+  document.getElementById("mainImage").onerror=function(){
+    this.src="https://placehold.co/600x500/f0e5d8/76151d?text=Foto+do+Produto";
+  };
+}
+
+function showThumbnails(){
+  document.getElementById("thumbnails").innerHTML=product.images.map((image,index)=>`
+    <img src="${image}"
+      class="${index===currentImage?'selected':''}"
+      onclick="selectImage(${index})"
+      onerror="this.style.display='none'"
+      alt="Foto ${index+1}">
+  `).join("");
+}
+
+function selectImage(index){
+  currentImage=index;
+  showImage();
+  showThumbnails();
+}
+
+function changeQuantity(value){
+  quantity=Math.max(1,quantity+value);
+  document.getElementById("quantity").textContent=quantity;
+}
+
+function buyProduct(){
+  if(!product)return;
+
+  if(!product.checkout){
+    alert("O checkout deste produto ainda será configurado. Em breve você poderá finalizar sua compra!");
+    return;
+  }
+
+  window.location.href=product.checkout;
+}
+
+document.getElementById("year").textContent=new Date().getFullYear();
+
+const snow=document.getElementById("snow");
+for(let i=0;i<35;i++){
+  const flake=document.createElement("span");
+  flake.className="snowflake";
+  flake.textContent="❄";
+  flake.style.setProperty("--left",Math.random()*100+"%");
+  flake.style.setProperty("--size",(7+Math.random()*12)+"px");
+  flake.style.setProperty("--duration",(3+Math.random()*6)+"s");
+  flake.style.setProperty("--delay",(-Math.random()*8)+"s");
+  flake.style.setProperty("--drift",(-25+Math.random()*50)+"px");
+  snow.appendChild(flake);
+}
+</script>
+
+</body>
+</html>
