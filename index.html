@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -388,7 +389,13 @@ header {
 .product-rating {
   display:flex;
   align-items:center;
-  gap:2px;
+  gap:7px;
+}
+
+.rating-number {
+  color:#40352c;
+  font-size:14px;
+  font-weight:800;
 }
 
 /* ESTRELAS DOURADAS COM PREENCHIMENTO PROPORCIONAL */
@@ -928,6 +935,10 @@ products.map(product => {
           class="product-rating"
           aria-label="Avaliação de ${product.rating} de 5 estrelas"
         >
+          <span class="rating-number">
+            ${product.rating.toFixed(1).replace(".", ",")}
+          </span>
+
           <span
             class="stars"
             style="--rating-width:${ratingWidth}%"
@@ -1045,3 +1056,4 @@ createSnow("snowHero",65);
 
 </body>
 </html>
+
