@@ -4,8 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#17100e">
-<title>NATALIZE | Especial de Natal</title>
+<meta name="theme-color" content="#351014">
+<title>NATALIZE | Esquenta Black Friday 2026</title>
+
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
 
@@ -16,79 +17,612 @@
   --dark:#17100e;
   --cream:#fffaf1;
 }
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'DM Sans',sans-serif;background:#fffaf5;color:var(--dark)}
-header{
+
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html {
+  scroll-behavior:smooth;
+}
+
+body {
+  font-family:'DM Sans',sans-serif;
+  background:#fffaf5;
+  color:var(--dark);
+  overflow-x:hidden;
+}
+
+/* CABEÇALHO */
+
+header {
   background:linear-gradient(110deg,#130c0b,#351014,#170c0b);
-  color:white;padding:20px 7%;display:flex;
-  justify-content:space-between;align-items:center;
+  color:white;
+  padding:20px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
   border-bottom:2px solid var(--gold);
-  position:relative;overflow:hidden;isolation:isolate;
-  min-height:85px
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  min-height:85px;
 }
-.logo,.header-tag{position:relative;z-index:2}
-.logo{font-family:'Playfair Display',serif;font-size:27px;color:var(--gold);font-weight:800;letter-spacing:2px}
-.logo small{display:block;font-family:'DM Sans',sans-serif;font-size:9px;color:white;letter-spacing:4px;text-align:center}
-.header-tag{font-size:12px;color:#f0d9ad;font-weight:700}
-.snow-container{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
-.snowflake{position:absolute;top:-15px;color:white;opacity:.8;font-size:var(--size);left:var(--left);animation:snowFall var(--duration) linear infinite;animation-delay:var(--delay);text-shadow:0 0 8px white}
-@keyframes snowFall{
-  0%{transform:translate3d(0,-15px,0) rotate(0);opacity:0}
-  10%{opacity:.85}
-  90%{opacity:.7}
-  100%{transform:translate3d(var(--drift),110px,0) rotate(360deg);opacity:0}
+
+.logo,.header-tag {
+  position:relative;
+  z-index:3;
 }
-.hero{
-  background:linear-gradient(100deg,rgba(20,8,7,.95),rgba(75,13,18,.87));
-  color:white;padding:75px 20px 85px;text-align:center;
-  position:relative;overflow:hidden
+
+.logo {
+  font-family:'Playfair Display',serif;
+  font-size:27px;
+  color:var(--gold);
+  font-weight:800;
+  letter-spacing:2px;
 }
-.hero-label{display:inline-block;background:var(--gold);color:#32170e;padding:9px 18px;border-radius:30px;font-weight:800;font-size:12px;letter-spacing:1px;margin-bottom:20px}
-.hero h1{font-family:'Playfair Display',serif;font-size:clamp(36px,6vw,65px);line-height:1.1}
-.hero h1 span{color:var(--gold)}
-.hero p{color:#e8d9ce;margin:18px auto 25px;max-width:550px;font-size:16px;line-height:1.7}
-.hero-button{display:inline-block;padding:15px 28px;background:var(--gold);color:#29140e;border-radius:8px;text-decoration:none;font-weight:800}
-.benefits{display:flex;justify-content:center;flex-wrap:wrap;gap:35px;padding:22px 15px;background:white;border-bottom:1px solid #eee3d7}
-.benefits span{font-size:13px;font-weight:700;color:#59483c}
-.products{padding:65px 7%;max-width:1450px;margin:auto}
-.section-title{text-align:center;margin-bottom:38px}
-.section-title small{color:var(--red);font-weight:800;letter-spacing:2px}
-.section-title h2{font-family:'Playfair Display',serif;font-size:clamp(29px,4vw,40px);margin:10px 0}
-.section-title p{color:#756d66;font-size:14px}
-.product-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px}
-.product-card{background:white;border:1px solid #eee5db;border-radius:14px;overflow:hidden;box-shadow:0 7px 25px #28140a10;transition:.25s}
-.product-card:hover{transform:translateY(-6px);box-shadow:0 15px 35px #28140a20}
-.product-image{height:290px;background:#f1e5d7;overflow:hidden;position:relative}
-.product-image img{width:100%;height:100%;object-fit:contain}
-.discount{position:absolute;top:14px;left:14px;background:var(--red);color:white;font-size:11px;font-weight:800;padding:8px 12px;border-radius:5px}
-.product-info{padding:22px}
-.product-info h3{font-size:18px;margin-bottom:9px}
-.description{color:#756d66;font-size:13px;line-height:1.7;min-height:65px}
-.old-price{color:#999;text-decoration:line-through;font-size:14px;margin-top:16px}
-.price{color:var(--red);font-size:32px;font-weight:800;margin:3px 0}
-.cash{color:#43814c;font-size:12px;font-weight:700}
-.btn{display:block;text-align:center;text-decoration:none;border:0;border-radius:7px;padding:14px 10px;font-weight:800;font-size:12px;background:var(--red);color:white;margin-top:18px;transition:.2s}
-.btn:hover{filter:brightness(.9);transform:translateY(-2px)}
-.promo{margin:10px 7% 65px;padding:38px 25px;text-align:center;color:white;background:linear-gradient(110deg,#76151d,#a91f28);border-radius:14px}
-.promo h2{font-family:'Playfair Display',serif;font-size:30px;margin-bottom:10px}
-.promo p{color:#f5dede;font-size:14px}
-footer{background:linear-gradient(135deg,#130c0b,#2b1012);color:white;padding:45px 7% 20px;border-top:2px solid var(--gold);margin-top:50px}
-.footer-content{display:flex;justify-content:space-between;flex-wrap:wrap;gap:35px}
-.footer-brand h2{color:var(--gold);font-size:27px;letter-spacing:3px;margin-bottom:8px}
-.footer-brand p,.footer-info p,.footer-info a{color:#e8dddd;line-height:2;text-decoration:none}
-.footer-info h3{color:var(--gold);margin-bottom:12px}
-.footer-bottom{border-top:1px solid #ffffff25;margin-top:30px;padding-top:18px;text-align:center;color:#bcaeae;font-size:13px}
-@media(max-width:850px){.product-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:600px){
-  header{padding:15px 5%}
-  .header-tag{font-size:10px}
-  .hero{padding:60px 18px}
-  .products{padding:45px 5%}
-  .product-grid{grid-template-columns:1fr}
-  .product-image{height:320px}
-  .benefits{gap:15px}
-  .promo{margin:5px 5% 45px}
-  .footer-content{flex-direction:column;gap:25px}
+
+.logo small {
+  display:block;
+  font-family:'DM Sans',sans-serif;
+  font-size:9px;
+  color:white;
+  letter-spacing:4px;
+  text-align:center;
+}
+
+.header-tag {
+  font-size:12px;
+  color:#f0d9ad;
+  font-weight:800;
+  text-align:right;
+}
+
+/* NEVE */
+
+.snow-container {
+  position:absolute;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:1;
+}
+
+.snowflake {
+  position:absolute;
+  top:-20px;
+  color:white;
+  opacity:.8;
+  font-size:var(--size);
+  left:var(--left);
+  animation:snowFall var(--duration) linear infinite;
+  animation-delay:var(--delay);
+  text-shadow:0 0 8px white;
+}
+
+@keyframes snowFall {
+  0% {
+    transform:translate3d(0,-20px,0) rotate(0);
+    opacity:0;
+  }
+  10% {opacity:.85;}
+  90% {opacity:.7;}
+  100% {
+    transform:translate3d(var(--drift),110vh,0) rotate(360deg);
+    opacity:0;
+  }
+}
+
+/* ÁREA PRINCIPAL */
+
+.hero {
+  background:linear-gradient(110deg,#25100f,#482024,#351014);
+  color:white;
+  padding:75px 20px 85px;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+  min-height:505px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.hero-content {
+  position:relative;
+  z-index:4;
+  max-width:850px;
+  margin:auto;
+}
+
+.hero-label {
+  display:inline-block;
+  background:var(--gold);
+  color:#32170e;
+  padding:9px 18px;
+  border-radius:30px;
+  font-weight:800;
+  font-size:12px;
+  letter-spacing:1px;
+  margin-bottom:20px;
+}
+
+.hero h1 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(36px,6vw,65px);
+  line-height:1.1;
+}
+
+.hero h1 span {
+  color:var(--gold);
+}
+
+.hero p {
+  color:#e8d9ce;
+  margin:18px auto 25px;
+  max-width:550px;
+  font-size:16px;
+  line-height:1.7;
+}
+
+.campaign-highlight {
+  display:inline-block;
+  margin:0 auto 22px;
+  padding:11px 18px;
+  border:1px solid rgba(230,187,101,.55);
+  background:rgba(0,0,0,.22);
+  border-radius:8px;
+  color:#ffe1a2;
+  font-size:13px;
+  font-weight:800;
+  letter-spacing:1px;
+}
+
+.hero-button {
+  display:inline-block;
+  padding:15px 28px;
+  background:var(--gold);
+  color:#29140e;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:800;
+  transition:.2s;
+}
+
+.hero-button:hover {
+  transform:translateY(-3px);
+  filter:brightness(1.08);
+}
+
+/* PAPAI NOEL NAS CORDAS */
+
+.santa-climber {
+  position:absolute;
+  z-index:3;
+  top:45px;
+  font-size:48px;
+  line-height:1;
+  animation:climb 4s ease-in-out infinite alternate;
+  filter:drop-shadow(0 5px 5px rgba(0,0,0,.35));
+  pointer-events:none;
+}
+
+.santa-left {
+  left:4%;
+}
+
+.santa-right {
+  right:4%;
+  animation-delay:1.5s;
+}
+
+.climbing-rope {
+  position:absolute;
+  z-index:2;
+  top:0;
+  bottom:0;
+  width:3px;
+  background:repeating-linear-gradient(
+    to bottom,
+    #d6b47b 0px,
+    #d6b47b 7px,
+    #80603e 7px,
+    #80603e 13px
+  );
+  opacity:.8;
+}
+
+.rope-left {
+  left:calc(4% + 24px);
+}
+
+.rope-right {
+  right:calc(4% + 24px);
+}
+
+@keyframes climb {
+  0% {
+    transform:translateY(0) rotate(-5deg);
+  }
+  50% {
+    transform:translateY(65px) rotate(4deg);
+  }
+  100% {
+    transform:translateY(125px) rotate(-3deg);
+  }
+}
+
+/* BENEFÍCIOS */
+
+.benefits {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:35px;
+  padding:22px 15px;
+  background:white;
+  border-bottom:1px solid #eee3d7;
+}
+
+.benefits span {
+  font-size:13px;
+  font-weight:700;
+  color:#59483c;
+}
+
+/* PRODUTOS */
+
+.products {
+  padding:65px 7%;
+  max-width:1450px;
+  margin:auto;
+}
+
+.section-title {
+  text-align:center;
+  margin-bottom:38px;
+}
+
+.section-title small {
+  color:var(--red);
+  font-weight:800;
+  letter-spacing:2px;
+}
+
+.section-title h2 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(29px,4vw,40px);
+  margin:10px 0;
+}
+
+.section-title p {
+  color:#756d66;
+  font-size:14px;
+}
+
+.campaign-note {
+  display:inline-block;
+  margin-top:15px;
+  padding:9px 15px;
+  background:#fff0d5;
+  color:#8a281d;
+  border-radius:6px;
+  font-size:12px;
+  font-weight:800;
+}
+
+.product-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:25px;
+}
+
+.product-card {
+  background:white;
+  border:1px solid #eee5db;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 7px 25px #28140a10;
+  transition:.25s;
+}
+
+.product-card:hover {
+  transform:translateY(-6px);
+  box-shadow:0 15px 35px #28140a20;
+}
+
+.product-image {
+  height:290px;
+  background:#f1e5d7;
+  overflow:hidden;
+  position:relative;
+}
+
+.product-image img {
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+.discount {
+  position:absolute;
+  top:14px;
+  left:14px;
+  background:var(--red);
+  color:white;
+  font-size:11px;
+  font-weight:800;
+  padding:8px 12px;
+  border-radius:5px;
+  z-index:2;
+}
+
+.product-info {
+  padding:22px;
+}
+
+.product-info h3 {
+  font-size:18px;
+  margin-bottom:9px;
+}
+
+.description {
+  color:#756d66;
+  font-size:13px;
+  line-height:1.7;
+  min-height:65px;
+}
+
+.old-price {
+  color:#999;
+  text-decoration:line-through;
+  font-size:14px;
+  margin-top:16px;
+}
+
+.price {
+  color:var(--red);
+  font-size:32px;
+  font-weight:800;
+  margin:3px 0;
+}
+
+.cash {
+  color:#43814c;
+  font-size:12px;
+  font-weight:700;
+}
+
+.btn {
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  border:0;
+  border-radius:7px;
+  padding:14px 10px;
+  font-weight:800;
+  font-size:12px;
+  background:var(--red);
+  color:white;
+  margin-top:18px;
+  transition:.2s;
+}
+
+.btn:hover {
+  filter:brightness(.9);
+  transform:translateY(-2px);
+}
+
+/* FAIXA DE QUEIMA DE ESTOQUE */
+
+.promo {
+  margin:10px 7% 65px;
+  padding:42px 25px;
+  text-align:center;
+  color:white;
+  background:linear-gradient(110deg,#4b0c12,#a91f28,#76151d);
+  border:1px solid rgba(230,187,101,.6);
+  border-radius:14px;
+  box-shadow:0 10px 30px #28140a20;
+  position:relative;
+  overflow:hidden;
+}
+
+.promo-label {
+  display:inline-block;
+  color:#351014;
+  background:var(--gold);
+  font-size:11px;
+  font-weight:900;
+  letter-spacing:1.5px;
+  padding:8px 15px;
+  border-radius:30px;
+  margin-bottom:15px;
+}
+
+.promo h2 {
+  font-family:'Playfair Display',serif;
+  font-size:clamp(25px,4vw,36px);
+  margin-bottom:10px;
+}
+
+.promo p {
+  color:#f5dede;
+  font-size:14px;
+  line-height:1.8;
+}
+
+/* RODAPÉ */
+
+footer {
+  background:linear-gradient(135deg,#130c0b,#2b1012);
+  color:white;
+  padding:45px 7% 20px;
+  border-top:2px solid var(--gold);
+  margin-top:50px;
+}
+
+.footer-content {
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:35px;
+}
+
+.footer-brand h2 {
+  color:var(--gold);
+  font-size:27px;
+  letter-spacing:3px;
+  margin-bottom:8px;
+}
+
+.footer-brand p,
+.footer-info p,
+.footer-info a {
+  color:#e8dddd;
+  line-height:2;
+  text-decoration:none;
+}
+
+.footer-info h3 {
+  color:var(--gold);
+  margin-bottom:12px;
+}
+
+.footer-bottom {
+  border-top:1px solid #ffffff25;
+  margin-top:30px;
+  padding-top:18px;
+  text-align:center;
+  color:#bcaeae;
+  font-size:13px;
+}
+
+/* RESPONSIVIDADE */
+
+@media(max-width:850px) {
+  .product-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  .santa-left {
+    left:2%;
+  }
+
+  .santa-right {
+    right:2%;
+  }
+
+  .rope-left {
+    left:calc(2% + 24px);
+  }
+
+  .rope-right {
+    right:calc(2% + 24px);
+  }
+}
+
+@media(max-width:600px) {
+  header {
+    padding:15px 5%;
+  }
+
+  .logo {
+    font-size:23px;
+  }
+
+  .header-tag {
+    font-size:9px;
+    max-width:125px;
+  }
+
+  .hero {
+    padding:65px 18px;
+    min-height:480px;
+  }
+
+  .hero h1 {
+    font-size:clamp(34px,9vw,48px);
+  }
+
+  .hero p {
+    font-size:14px;
+  }
+
+  .hero-label {
+    font-size:10px;
+  }
+
+  .campaign-highlight {
+    font-size:10px;
+    line-height:1.6;
+  }
+
+  .santa-climber {
+    font-size:32px;
+    top:35px;
+  }
+
+  .santa-left {
+    left:1%;
+  }
+
+  .santa-right {
+    right:1%;
+  }
+
+  .rope-left {
+    left:calc(1% + 16px);
+  }
+
+  .rope-right {
+    right:calc(1% + 16px);
+  }
+
+  .products {
+    padding:45px 5%;
+  }
+
+  .product-grid {
+    grid-template-columns:1fr;
+  }
+
+  .product-image {
+    height:320px;
+  }
+
+  .benefits {
+    gap:15px;
+  }
+
+  .benefits span {
+    font-size:11px;
+  }
+
+  .promo {
+    margin:5px 5% 45px;
+    padding:35px 18px;
+  }
+
+  .footer-content {
+    flex-direction:column;
+    gap:25px;
+  }
+}
+
+/* ACESSIBILIDADE: RESPEITA QUEM PREFERE MENOS ANIMAÇÕES */
+
+@media(prefers-reduced-motion:reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration:0.01ms !important;
+    animation-iteration-count:1 !important;
+    scroll-behavior:auto !important;
+  }
 }
 </style>
 </head>
@@ -96,65 +630,145 @@ footer{background:linear-gradient(135deg,#130c0b,#2b1012);color:white;padding:45
 <body>
 
 <header>
-  <div class="snow-container" id="snow"></div>
-  <div class="logo">NATALIZE<small>ESPECIAL DE NATAL</small></div>
-  <div class="header-tag">🎄 ESQUENTA BLACK FRIDAY</div>
+  <div class="snow-container" id="snowHeader"></div>
+
+  <div class="logo">
+    NATALIZE
+    <small>ESPECIAL DE NATAL</small>
+  </div>
+
+  <div class="header-tag">
+    🎄 ESQUENTA BLACK FRIDAY 2026
+  </div>
 </header>
 
 <section class="hero">
-  <div class="hero-label">⚡ OFERTAS ESPECIAIS DE NATAL</div>
-  <h1>O encanto do Natal<br>começa na <span>sua casa!</span></h1>
-  <p>Árvores, enfeites e kits especiais para transformar sua decoração. Aproveite nossas ofertas!</p>
-  <a href="#produtos" class="hero-button">VER OFERTAS ↓</a>
+
+  <div class="snow-container" id="snowHero"></div>
+
+  <div class="climbing-rope rope-left"></div>
+  <div class="climbing-rope rope-right"></div>
+
+  <div class="santa-climber santa-left">🎅</div>
+  <div class="santa-climber santa-right">🎅</div>
+
+  <div class="hero-content">
+
+    <div class="hero-label">
+      ⚡ ESQUENTA BLACK FRIDAY 2026
+    </div>
+
+    <div class="campaign-highlight">
+      🔥 QUEIMA DE ESTOQUE • OFERTAS ESPECIAIS DE NATAL
+    </div>
+
+    <h1>
+      O encanto do Natal<br>
+      começa na <span>sua casa!</span>
+    </h1>
+
+    <p>
+      É hora de garantir sua decoração de Natal pagando muito menos!
+      Árvores, enfeites e kits especiais com preços promocionais
+      de queima de estoque. Aproveite!
+    </p>
+
+    <a href="#produtos" class="hero-button">
+      VER OFERTAS ↓
+    </a>
+
+  </div>
 </section>
 
 <div class="benefits">
   <span>🎄 Decoração de Natal</span>
-  <span>✨ Ofertas especiais</span>
+  <span>🔥 Queima de estoque</span>
   <span>🎁 Kits completos</span>
-  <span>💬 Atendimento ao cliente</span>
+  <span>✨ Preços promocionais</span>
 </div>
 
 <main>
+
 <section class="products" id="produtos">
+
   <div class="section-title">
-    <small>SELEÇÃO ESPECIAL</small>
-    <h2>Nossas ofertas de Natal</h2>
-    <p>Escolha seu produto e conheça todos os detalhes.</p>
+
+    <small>🔥 ESQUENTA BLACK FRIDAY 2026</small>
+
+    <h2>Ofertas de Queima de Estoque</h2>
+
+    <p>
+      Produtos selecionados com preços especiais para você preparar seu Natal.
+    </p>
+
+    <div class="campaign-note">
+      ⚡ OFERTAS PROMOCIONAIS POR TEMPO LIMITADO
+    </div>
+
   </div>
+
   <div class="product-grid" id="productGrid"></div>
+
 </section>
 
 <section class="promo">
-  <h2>Seu Natal merece esse encanto! 🎄</h2>
-  <p>Não deixe para depois. Escolha seus produtos e prepare sua casa!</p>
+
+  <div class="promo-label">
+    🔥 CAMPANHA ESPECIAL 2026
+  </div>
+
+  <h2>QUEIMA DE ESTOQUE NATALIZE!</h2>
+
+  <p>
+    O Esquenta Black Friday chegou com ofertas especiais para deixar
+    seu Natal ainda mais bonito.<br>
+    Aproveite os preços promocionais enquanto durarem os estoques!
+  </p>
+
 </section>
+
 </main>
 
 <footer>
+
   <div class="footer-content">
+
     <div class="footer-brand">
       <h2>NATALIZE</h2>
-      <p>O encanto do Natal começa aqui. Encontre produtos especiais para deixar sua celebração ainda mais bonita.</p>
+      <p>
+        O encanto do Natal começa aqui. Encontre produtos especiais
+        para deixar sua celebração ainda mais bonita.
+      </p>
     </div>
+
     <div class="footer-info">
       <h3>Atendimento</h3>
       <p>Entre em contato com nossa equipe.</p>
-      <a href="#" onclick="contactStore();return false;">Fale conosco pelo WhatsApp</a>
+      <a href="#" onclick="contactStore();return false;">
+        Fale conosco pelo WhatsApp
+      </a>
     </div>
+
     <div class="footer-info">
       <h3>Compra segura</h3>
       <p>Ofertas especiais de Natal</p>
       <p>Suporte ao cliente</p>
     </div>
+
   </div>
+
   <div class="footer-bottom">
-    © <span id="year"></span> NATALIZE — Especial de Natal. Todos os direitos reservados.
+    © <span id="year"></span> NATALIZE — Especial de Natal.
+    Todos os direitos reservados.
   </div>
+
 </footer>
 
 <script>
+
 const WHATSAPP_NUMBER = "5533999999999";
+
+/* PRODUTOS */
 
 const products = [
   {
@@ -183,46 +797,126 @@ const products = [
   }
 ];
 
-document.getElementById("productGrid").innerHTML = products.map(product => `
+/* EXIBIÇÃO DOS PRODUTOS */
+
+document.getElementById("productGrid").innerHTML =
+products.map(product => `
   <article class="product-card">
+
     <div class="product-image">
-      <span class="discount">ESQUENTA BLACK FRIDAY</span>
-      <img src="${product.image}" alt="${product.name}"
-      onerror="this.src='https://placehold.co/600x500/f0e5d8/76151d?text=Foto+do+Produto'">
+
+      <span class="discount">
+        🔥 QUEIMA DE ESTOQUE
+      </span>
+
+      <img
+        src="${product.image}"
+        alt="${product.name}"
+        onerror="this.src='https://placehold.co/600x500/f0e5d8/76151d?text=Foto+do+Produto'"
+      >
+
     </div>
+
     <div class="product-info">
+
       <h3>${product.name}</h3>
-      <p class="description">${product.description}</p>
-      <div class="old-price">De: R$ ${product.oldPrice}</div>
-      <div class="price">R$ ${product.price}</div>
-      <div class="cash">À VISTA</div>
-      <a class="btn" href="produto.html?id=${product.id}">VER PRODUTO E COMPRAR →</a>
+
+      <p class="description">
+        ${product.description}
+      </p>
+
+      <div class="old-price">
+        De: R$ ${product.oldPrice}
+      </div>
+
+      <div class="price">
+        R$ ${product.price}
+      </div>
+
+      <div class="cash">
+        À VISTA
+      </div>
+
+      <a class="btn" href="produto.html?id=${product.id}">
+        VER PRODUTO E COMPRAR →
+      </a>
+
     </div>
+
   </article>
 `).join("");
 
-document.getElementById("year").textContent = new Date().getFullYear();
+/* ANO AUTOMÁTICO */
 
-function contactStore(){
-  if(WHATSAPP_NUMBER === "5533999999999"){
+document.getElementById("year").textContent =
+new Date().getFullYear();
+
+/* WHATSAPP */
+
+function contactStore() {
+
+  if(WHATSAPP_NUMBER === "5533999999999") {
     alert("Configure o número do WhatsApp da loja no código.");
     return;
   }
-  window.open("https://wa.me/" + WHATSAPP_NUMBER,"_blank");
+
+  window.open(
+    "https://wa.me/" + WHATSAPP_NUMBER,
+    "_blank"
+  );
+
 }
 
-const snow = document.getElementById("snow");
-for(let i=0;i<35;i++){
-  const flake=document.createElement("span");
-  flake.className="snowflake";
-  flake.textContent="❄";
-  flake.style.setProperty("--left",Math.random()*100+"%");
-  flake.style.setProperty("--size",(7+Math.random()*12)+"px");
-  flake.style.setProperty("--duration",(3+Math.random()*6)+"s");
-  flake.style.setProperty("--delay",(-Math.random()*8)+"s");
-  flake.style.setProperty("--drift",(-25+Math.random()*50)+"px");
-  snow.appendChild(flake);
+/* NEVE NO CABEÇALHO E NO FUNDO PRINCIPAL */
+
+function createSnow(containerId, amount) {
+
+  const snow = document.getElementById(containerId);
+
+  if(!snow) return;
+
+  for(let i=0; i<amount; i++) {
+
+    const flake = document.createElement("span");
+
+    flake.className = "snowflake";
+    flake.textContent = "❄";
+
+    flake.style.setProperty(
+      "--left",
+      Math.random()*100 + "%"
+    );
+
+    flake.style.setProperty(
+      "--size",
+      (7 + Math.random()*13) + "px"
+    );
+
+    flake.style.setProperty(
+      "--duration",
+      (5 + Math.random()*8) + "s"
+    );
+
+    flake.style.setProperty(
+      "--delay",
+      (-Math.random()*12) + "s"
+    );
+
+    flake.style.setProperty(
+      "--drift",
+      (-35 + Math.random()*70) + "px"
+    );
+
+    snow.appendChild(flake);
+
+  }
+
 }
+
+createSnow("snowHeader",25);
+createSnow("snowHero",65);
+
 </script>
+
 </body>
 </html>
