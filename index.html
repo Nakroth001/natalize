@@ -360,6 +360,72 @@ header {
   z-index:2;
 }
 
+/* SELO MAIS VENDIDO */
+
+.best-seller {
+  position:absolute;
+  top:14px;
+  right:14px;
+  background:linear-gradient(135deg,#e6bb65,#f7d991);
+  color:#351014;
+  font-size:10px;
+  font-weight:900;
+  padding:9px 11px;
+  border-radius:5px;
+  z-index:3;
+  box-shadow:0 3px 10px #00000025;
+  letter-spacing:.4px;
+}
+
+/* AVALIAÇÕES, VENDAS E ESTOQUE */
+
+.product-social-proof {
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  margin:5px 0 14px;
+}
+
+.product-rating {
+  display:flex;
+  align-items:center;
+  gap:2px;
+}
+
+.stars {
+  position:relative;
+  display:inline-block;
+  font-size:19px;
+  line-height:1;
+  letter-spacing:1px;
+}
+
+.stars-empty {
+  color:#dedede;
+}
+
+.stars-filled {
+  position:absolute;
+  top:0;
+  left:0;
+  width:var(--rating-width);
+  overflow:hidden;
+  white-space:nowrap;
+  color:#e6ad35;
+}
+
+.product-sold {
+  color:#77716b;
+  font-size:12px;
+  font-weight:700;
+}
+
+.product-stock {
+  color:#43814c;
+  font-size:12px;
+  font-weight:700;
+}
+
 .product-info {
   padding:22px;
 }
@@ -613,7 +679,7 @@ footer {
   }
 }
 
-/* ACESSIBILIDADE: RESPEITA QUEM PREFERE MENOS ANIMAÇÕES */
+/* ACESSIBILIDADE */
 
 @media(prefers-reduced-motion:reduce) {
   *,
@@ -771,7 +837,11 @@ const products = [
     description:"Deixe seu lar no clima Natalino! Árvore de Natal de 2,10m com 1.100 galhos + pisca-pisca incluso. Uma excelente opção para uma decoração especial de Natal!",
     oldPrice:"189,75",
     price:"98,35",
-    image:"arvore2mcapa.png"
+    image:"arvore2mcapa.png",
+    rating:4.7,
+    sold:295,
+    stock:204,
+    bestSeller:true
   },
   {
     id:2,
@@ -779,7 +849,10 @@ const products = [
     description:"Kit completo com uma árvore de 1,80m com 900 galhos, pisca-pisca, 16 bolinhas, 5 festões e uma estrela com LED para o topo + brinde surpresa!",
     oldPrice:"438,90",
     price:"189,99",
-    image:"foto1.png"
+    image:"foto1.png",
+    rating:4.9,
+    sold:234,
+    stock:127
   },
   {
     id:3,
@@ -787,28 +860,37 @@ const products = [
     description:"Decore como quiser com um kit completo para deixar sua árvore e sua casa ainda mais bonitas no clima natalino! Itens inclusos listados na foto.",
     oldPrice:"139,70",
     price:"79,90",
-    image:"kit1.png"
+    image:"kit1.png",
+    rating:4.5,
+    sold:97,
+    stock:332
   },
-   {
-    id: 4,
-    name: "Refletor Projetor Natalino Holográfico",
-    description: "Traga uma iluminação diferenciada para sua casa, fachadas, comércios, jardins ou empresas! Fabricado com material de alta durabilidade, à prova d'água e fácil de instalar e manusear. Tudo para trazer mais alegria ao seu Natal.",
-    oldPrice: "136,57",
-    price: "59,20",
-    images: [
+  {
+    id:4,
+    name:"Refletor Projetor Natalino Holográfico",
+    description:"Traga uma iluminação diferenciada para sua casa, fachadas, comércios, jardins ou empresas! Fabricado com material de alta durabilidade, à prova d'água e fácil de instalar e manusear. Tudo para trazer mais alegria ao seu Natal.",
+    oldPrice:"136,57",
+    price:"59,20",
+    images:[
       "refletor1.png",
       "refletor2.png",
       "refletor3.png"
     ],
-    image: "refletor1.png"
+    image:"refletor1.png",
+    rating:4.4,
+    sold:52,
+    stock:74
   }
-  
 ];
 
 /* EXIBIÇÃO DOS PRODUTOS */
 
 document.getElementById("productGrid").innerHTML =
-products.map(product => `
+products.map(product => {
+
+  const ratingWidth = (product.rating / 5) * 100;
+
+  return `
   <article class="product-card">
 
     <div class="product-image">
@@ -816,6 +898,12 @@ products.map(product => `
       <span class="discount">
         🔥 QUEIMA DE ESTOQUE
       </span>
+
+      ${product.bestSeller ? `
+        <span class="best-seller">
+          🏆 MAIS VENDIDO
+        </span>
+      ` : ""}
 
       <img
         src="${product.image}"
@@ -828,6 +916,27 @@ products.map(product => `
     <div class="product-info">
 
       <h3>${product.name}</h3>
+
+      <div class="product-social-proof">
+
+        <div class="product-rating" aria-label="Avaliação em estrelas">
+          <span class="stars stars-empty" aria-hidden="true">★★★★★</span>
+          <span
+            class="stars stars-filled"
+            style="--rating-width:${ratingWidth}%"
+            aria-hidden="true"
+          >★★★★★</span>
+        </div>
+
+        <div class="product-sold">
+          🔥 ${product.sold} vendidos
+        </div>
+
+        <div class="product-stock">
+          📦 ${product.stock} unidades disponíveis
+        </div>
+
+      </div>
 
       <p class="description">
         ${product.description}
@@ -852,7 +961,8 @@ products.map(product => `
     </div>
 
   </article>
-`).join("");
+  `;
+}).join("");
 
 /* ANO AUTOMÁTICO */
 
