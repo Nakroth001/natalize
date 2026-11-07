@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -392,26 +391,32 @@ header {
   gap:2px;
 }
 
+/* ESTRELAS DOURADAS COM PREENCHIMENTO PROPORCIONAL */
+
 .stars {
   position:relative;
   display:inline-block;
-  font-size:19px;
+  font-size:22px;
   line-height:1;
-  letter-spacing:1px;
-}
-
-.stars-empty {
+  letter-spacing:2px;
   color:#dedede;
+  text-shadow:0 1px 2px rgba(0,0,0,.10);
 }
 
-.stars-filled {
+.stars::before {
+  content:"★★★★★";
   position:absolute;
   top:0;
   left:0;
   width:var(--rating-width);
+  height:100%;
   overflow:hidden;
   white-space:nowrap;
-  color:#e6ad35;
+  color:#ffc107;
+  text-shadow:
+    0 0 3px #ffd700,
+    0 0 7px rgba(255,193,7,.75),
+    0 0 12px rgba(255,193,7,.35);
 }
 
 .product-sold {
@@ -919,10 +924,12 @@ products.map(product => {
 
       <div class="product-social-proof">
 
-        <div class="product-rating" aria-label="Avaliação em estrelas">
-          <span class="stars stars-empty" aria-hidden="true">★★★★★</span>
+        <div
+          class="product-rating"
+          aria-label="Avaliação de ${product.rating} de 5 estrelas"
+        >
           <span
-            class="stars stars-filled"
+            class="stars"
             style="--rating-width:${ratingWidth}%"
             aria-hidden="true"
           >★★★★★</span>
